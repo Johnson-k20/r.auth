@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../services/api";
+import { loginUser } from "../api/api";
 
 function Login() {
   const navigate = useNavigate();
@@ -50,9 +50,7 @@ function Login() {
 
   return (
     <div className="min-h-screen bg-slate-950 px-4 py-10 text-slate-100">
-      <div
-        className="mx-auto flex max-w-6xl flex-col items-center justify-center rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/30 lg:flex-row lg:gap-10 lg:p-12"
-      >
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/30 lg:flex-row lg:gap-10 lg:p-12">
         <div className="max-w-md space-y-4 text-center lg:text-left">
           <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
             Welcome back
@@ -71,9 +69,7 @@ function Login() {
           onSubmit={handleSubmit}
           className="mt-8 w-full max-w-md space-y-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-6"
         >
-          <p className="text-red-500">
-            {errorMessage}
-          </p>
+          <p className="text-red-500">{errorMessage}</p>
 
           <div>
             <label
@@ -134,10 +130,7 @@ function Login() {
           </p>
 
           <p className="text-center">
-            <Link
-              to="/"
-              className="text-sm text-cyan-400 hover:text-cyan-300"
-            >
+            <Link to="/" className="text-sm text-cyan-400 hover:text-cyan-300">
               ← Back to Home
             </Link>
           </p>

@@ -18,8 +18,6 @@ export async function registerUser(userData) {
   return data;
 }
 
-
-
 export async function loginUser(loginData) {
   const response = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
@@ -53,7 +51,19 @@ export async function getUsers() {
   return data;
 }
 
+export async function getCurrentUser() {
+  const response = await fetch(`${API_URL}/auth/me`, {
+    credentials: "include",
+  });
 
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Unable to fetch current user");
+  }
+
+  return data;
+}
 
 export async function getUser(id) {
   const response = await fetch(`${API_URL}/users/${id}`, {
@@ -68,8 +78,6 @@ export async function getUser(id) {
 
   return data;
 }
-
-
 
 export async function updateUser(id, userData) {
   const response = await fetch(`${API_URL}/users/${id}`, {
@@ -89,8 +97,6 @@ export async function updateUser(id, userData) {
 
   return data;
 }
-
-
 
 export async function deleteUser(id) {
   const response = await fetch(`${API_URL}/users/${id}`, {

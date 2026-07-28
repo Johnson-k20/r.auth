@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { registerUser } from "../services/api";
+import { registerUser } from "../api/api";
 
 function Register() {
   const navigate = useNavigate();
@@ -61,7 +61,6 @@ function Register() {
   return (
     <div className="bg-slate-950 px-4 py-10 text-slate-100">
       <div className="mx-auto max-w-5xl rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/30 lg:p-12">
-
         <div className="mb-8 text-center lg:text-left">
           <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
             Create account
@@ -78,11 +77,7 @@ function Register() {
 
         <p className="text-red-500">{errorMessage}</p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="grid gap-4 md:grid-cols-2"
-        >
-
+        <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
           <div>
             <label
               htmlFor="firstName"
@@ -257,7 +252,6 @@ function Register() {
           </div>
 
           <div className="md:col-span-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-
             <button
               type="submit"
               disabled={loading}
@@ -275,11 +269,8 @@ function Register() {
                 Login here
               </Link>
             </p>
-
           </div>
-
         </form>
-
       </div>
     </div>
   );
